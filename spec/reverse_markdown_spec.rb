@@ -15,4 +15,8 @@ describe ReverseMarkdown do
   it "parses string input" do
     lambda { ReverseMarkdown.parse_string(input) }.should_not raise_error
   end
+
+  it "doesn't throw unknown end tag error" do
+    lambda { ReverseMarkdown.parse_string("no html tags here<br />") }.should_not raise_error
+  end
 end

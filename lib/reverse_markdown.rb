@@ -8,7 +8,7 @@ module ReverseMarkdown
 
   def self.parse(input, opts={})
     root = case input
-      when String                  then Nokogiri::HTML(input).root
+      when String                  then Nokogiri::HTML::fragment(input)
       when Nokogiri::XML::Document then input.root
       when Nokogiri::XML::Node     then input
     end
